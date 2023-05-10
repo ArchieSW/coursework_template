@@ -39,4 +39,4 @@ jobs:
         - uses: softprops/action-gh-release@v1
           if: ${{ github.ref_type == 'tag' }}
           with:
-            files: "*.pdf"
+            files: "*.zip"
