@@ -1,0 +1,23 @@
+on:
+  push:
+    branches: [main]
+jobs:
+  compile:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Github Action for LaTeX
+        uses: xu-cheng/latex-action@v2
+        with:
+          root_file: |
+            coursework/coursework.tex
+            eng_biblatex/coursework.tex
+            slides/slides.tex
+          work_in_root_file_dir: true
+          latexmk_shell_escape: true
+      - uses: actions/upload-artifact@v2
+        with:
+          name: PDF
+          path: |
+            coursework/coursework.pdf
+            slides/slides.pdf
